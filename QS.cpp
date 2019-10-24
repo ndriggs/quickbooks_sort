@@ -63,7 +63,33 @@ void QS::sortAll(){
 *		the index of the pivot (middle index); -1 if provided with invalid input
 */
 int QS::medianOfThree(int left, int right) {
+    if((index == 0) || (left < 0) || (right >= size) || (left >= right))
+        return -1;
+    int middle = (left + right) / 2;
     
+    //sorts the left, middle, and right using an insertion sort of sorts
+    int min;
+    int mid;
+    int max;
+    if(array[middle] < array[left]){
+        int temp = array[left];
+        array[left] = array[middle];
+        array[middle] = temp;
+    }
+    if(array[right] < array[middle]){
+        if(array[right] < array[left]){
+            int temp = array[left];
+            array[left] = array[right];
+            array[right] = array[middle];
+            array[middle] = temp;
+        }
+        else {
+            int temp = array[middle];
+            array[middle] = array[right];
+            array[right] = temp;
+        }
+    }
+    return middle;
 }
 
 /*
@@ -167,4 +193,3 @@ bool QS::createArray(int capacity){
 void QS::clear() {
     index = 0;
 }
-
