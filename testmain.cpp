@@ -11,13 +11,16 @@ int main(){
     line.addToArray(27);
     line.addToArray(15);
     line.addToArray(30);
+    line.addToArray(1);
+    line.addToArray(27);
+    line.addToArray(15);
+    line.addToArray(30);
     
     cout << "Your array sir:" << endl << line.getArray() << endl;
     cout << "Your size sir:" << endl << line.getSize() << endl;
     
-    int median = line.medianOfThree(0, 6);
+    line.sortAll();
     cout << "Your new array sir:" << endl << line.getArray() << endl;
-    cout << "With the pivot at index " << median << endl;
     
     return 0;
 }

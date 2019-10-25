@@ -34,8 +34,25 @@ QS::~QS(){}
 * Does nothing if the array is empty.
 */
 void QS::sortAll(){
-    
+    if(index > 0){
+        quicksort(0, index);
+    }
 }
+
+void QS::quicksort(int left, int right){
+    //base case if size of array is 1
+    if(left == right) //can also do: if((right - left) < 1) {return;}
+        return;
+        
+    //find a pivot and partion the array
+    int pivot = medianOfThree(left, right);
+    int newpivot = partition(left, right, pivot);
+    
+    //quicksort the left and right subarrays
+    quicksort(left, newpivot - 1);
+    quicksort(newpivot + 1, right);
+}
+
 
 /*
 * medianOfThree()
@@ -116,7 +133,43 @@ int QS::medianOfThree(int left, int right) {
 * 		provided with bad input
 */
 int QS::partition(int left, int right, int pivotIndex) {
+    //check if valid
+    if((array == NULL) || (left < 0) || (right > index) || (left > right) || (pivotIndex > right) || (pivotIndex < left))
+        return -1;
     
+    //move the pivot to the first index of the subarray
+    int temp = array[left];
+    array[left] = array[pivotIndex];
+    array[pivotIndex] = temp;
+    
+    //gearing up for something big
+    int up = left + 1;
+    int down = right;
+    
+    do {
+        //up finds the first term greater than the pivot
+        while((array[up] <= array[left]) && (up < down))
+            up++;
+        
+        //down finds the first term less than the pivot
+        while((array[down] > array[left]) && (down > up))
+            down--;
+            
+        //switch up and down    
+        if(up < down){
+            int tmp = array[up];
+            array[up] = array[down];
+            array[down] = tmp;
+        }
+    } while(up < down);
+    
+    //switch down and first
+    temp = array[left];
+    array[left] = array[down];
+    array[down] = temp;
+    
+    //return the index of the pivot
+    return down;
 }
 
 /*

@@ -23,7 +23,6 @@ private:
     int index;
     int size;
     
-    
 public:
 	QS();
 	~QS();
@@ -136,6 +135,8 @@ public:
 	* Resets the array to an empty or NULL state.
 	*/
 	void clear();
+	
+	void quicksort(int left, int right);
 };
 
 #endif /* QSINTERFACE_H_ */
