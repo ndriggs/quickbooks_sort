@@ -35,22 +35,28 @@ QS::~QS(){}
 */
 void QS::sortAll(){
     if(index > 0){
+        cout << "In the sortall function! Yay!" << endl;
         quicksort(0, index);
     }
 }
 
 void QS::quicksort(int left, int right){
     //base case if size of array is 1
-    if(left == right) //can also do: if((right - left) < 1) {return;}
+    if((right - left) < 1){ //can also do: if((right - left) < 1) {return;}
+        cout << "Base case baby!" << endl;
         return;
-        
+    }
     //find a pivot and partion the array
     int pivot = medianOfThree(left, right);
+    cout << "medianOfThree: " << getArray() << endl; 
     int newpivot = partition(left, right, pivot);
+    cout << "Partition: " << getArray() << endl;
     
     //quicksort the left and right subarrays
     quicksort(left, newpivot - 1);
-    quicksort(newpivot + 1, right);
+    cout << "Just sorted left subarray: " << getArray() << endl;   
+    quicksort(newpivot + 1, right - 1);
+    cout << "Just sorted right subarray: " << getArray() << endl;
 }
 
 
@@ -85,26 +91,20 @@ int QS::medianOfThree(int left, int right) {
     int middle = (left + right) / 2;
     
     //sorts the left, middle, and right using an insertion sort of sorts
-    int min;
-    int mid;
-    int max;
-    if(array[middle] < array[left]){
+    if(array[left] > array[middle]){
         int temp = array[left];
         array[left] = array[middle];
         array[middle] = temp;
     }
     if(array[right] < array[middle]){
-        if(array[right] < array[left]){
-            int temp = array[left];
-            array[left] = array[right];
-            array[right] = array[middle];
-            array[middle] = temp;
-        }
-        else {
-            int temp = array[middle];
-            array[middle] = array[right];
-            array[right] = temp;
-        }
+        int temp = array[middle];
+        array[middle] = array[right];
+        array[right] = temp;
+    }
+    if(array[middle] < array[left]){
+        int temp = array[left];
+        array[left] = array[middle];
+        array[middle] = temp;
     }
     return middle;
 }
@@ -165,8 +165,8 @@ int QS::partition(int left, int right, int pivotIndex) {
     
     //switch down and first
     temp = array[left];
-    array[left] = array[down];
-    array[down] = temp;
+    array[left] = array[down - 1];
+    array[down - 1] = temp;
     
     //return the index of the pivot
     return down;
@@ -231,6 +231,8 @@ bool QS::addToArray(int value){
 *		true if the array was created, false otherwise
 */
 bool QS::createArray(int capacity){
+    if(capacity <= 0)
+        return false;
     if(array != NULL){
         delete [] array;
         array = NULL;
