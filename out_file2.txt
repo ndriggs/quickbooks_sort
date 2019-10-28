@@ -1,0 +1,69 @@
+createArray 5 True
+addToArray 10 True
+addToArray 5 True
+addToArray 0 True
+addToArray -5 True
+addToArray -10 True
+getArray
+ 10, 5, 0, -5, -10
+medianOfThree 0 4 2
+getArray
+ -10, 5, 0, -5, 10
+medianOfThree 0 0 -1
+getArray
+ -10, 5, 0, -5, 10
+medianOfThree 0 2 1
+getArray
+ -10, 0, 5, -5, 10
+medianOfThree 1 3 2
+getArray
+ -10, -5, 0, 5, 10
+createArray 10 True
+getArray
+ 0, 0, 539766816, 824192053, 48
+addToArray 10 True
+addToArray 9 True
+addToArray 8 True
+addToArray 7 True
+addToArray 6 True
+addToArray 5 False
+addToArray 4 False
+addToArray 3 False
+addToArray 2 False
+addToArray 1 False
+getArray
+ 0, 0, 539766816, 824192053, 48, 10, 9, 8, 7, 6
+medianOfThree 0 9 4
+getArray
+ 0, 0, 539766816, 824192053, 6, 10, 9, 8, 7, 48
+medianOfThree 0 2 1
+getArray
+ 0, 0, 539766816, 824192053, 6, 10, 9, 8, 7, 48
+medianOfThree 2 4 3
+getArray
+ 0, 0, 6, 539766816, 824192053, 10, 9, 8, 7, 48
+medianOfThree 4 6 5
+getArray
+ 0, 0, 6, 539766816, 9, 10, 824192053, 8, 7, 48
+medianOfThree 6 8 7
+getArray
+ 0, 0, 6, 539766816, 9, 10, 7, 8, 824192053, 48
+createArray 4 True
+addToArray 2 False
+addToArray 1 False
+addToArray 1 False
+addToArray 1 False
+getArray
+ -1841272416, 22079, 1701996628, 540418149, 56, 0, 33, 0, -1841272384, 22079
+medianOfThree 1 3 2
+getArray
+ -1841272416, 22079, 540418149, 1701996628, 56, 0, 33, 0, -1841272384, 22079
+medianOfThree 0 2 1
+getArray 
+ -1841272416, 22079, 540418149, 1701996628, 56, 0, 33, 0, -1841272384, 22079
+medianOfThree 0 3 1
+getArray
+ -1841272416, 22079, 540418149, 1701996628, 56, 0, 33, 0, -1841272384, 22079
+medianOfThree 1 3 2
+getArray
+ -1841272416, 22079, 540418149, 1701996628, 56, 0, 33, 0, -1841272384, 22079

@@ -39,8 +39,8 @@ int main(){
     cout << endl << line.getArray() << endl;
     
     
-    line.sortAll();
-    cout << endl << line.getArray() << endl;
+    //line.sortAll();
+    //cout << endl << line.getArray() << endl;
     
     return 0;
 }

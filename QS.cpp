@@ -169,7 +169,7 @@ int QS::partition(int left, int right, int pivotIndex) {
     array[down - 1] = temp;
     
     //return the index of the pivot
-    return down;
+    return down - 1;
 }
 
 /*
