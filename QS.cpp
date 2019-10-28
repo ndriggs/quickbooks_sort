@@ -36,7 +36,7 @@ QS::~QS(){}
 void QS::sortAll(){
     if(index > 0){
         cout << "In the sortall function! Yay!" << endl;
-        quicksort(0, index);
+        quicksort(0, index - 1);
     }
 }
 
@@ -47,15 +47,15 @@ void QS::quicksort(int left, int right){
         return;
     }
     //find a pivot and partion the array
-    int pivot = medianOfThree(left, right);
+    int pivot = medianOfThree(left, right);  ////NEEDS ACTUAL INDEX
     cout << "medianOfThree: " << getArray() << endl; 
     int newpivot = partition(left, right, pivot);
     cout << "Partition: " << getArray() << endl;
     
     //quicksort the left and right subarrays
-    quicksort(left, newpivot - 1);
+    quicksort(left, newpivot);
     cout << "Just sorted left subarray: " << getArray() << endl;   
-    quicksort(newpivot + 1, right - 1);
+    quicksort(newpivot + 1, right);
     cout << "Just sorted right subarray: " << getArray() << endl;
 }
 
@@ -90,7 +90,7 @@ int QS::medianOfThree(int left, int right) {
         return -1;
     int middle = (left + right) / 2;
     
-    //sorts the left, middle, and right using an insertion sort of sorts
+    //sorts the left, middle, and right using bubble sort
     if(array[left] > array[middle]){
         int temp = array[left];
         array[left] = array[middle];
@@ -134,7 +134,7 @@ int QS::medianOfThree(int left, int right) {
 */
 int QS::partition(int left, int right, int pivotIndex) {
     //check if valid
-    if((array == NULL) || (left < 0) || (right > index) || (left > right) || (pivotIndex > right) || (pivotIndex < left))
+    if((array == NULL) || (left < 0) || (right >= index) || (left > right) || (pivotIndex > right) || (pivotIndex < left))
         return -1;
     
     //move the pivot to the first index of the subarray

@@ -23,17 +23,24 @@ int main(){
     //cout << line.getArray() << endl;
     
     
-    int piv = line.medianOfThree(0, 9);
+    int piv = line.medianOfThree(0, line.getSize() - 1); //////
     cout << "pivot at index " << piv << endl;
     cout << line.getArray() << endl << endl;
-    int newpiv = line.partition(0, 9, piv);
+    int newpiv = line.partition(0, line.getSize() - 1, piv); //////
     cout << "new piv at index " << newpiv << endl;
     cout << line.getArray() << endl << endl;
     
-    piv = line.medianOfThree(newpiv + 1, 9);
-    newpiv = line.partition(newpiv + 1, 9, piv);
+    piv = line.medianOfThree(newpiv + 1, line.getSize() - 1);
+    newpiv = line.partition(newpiv + 1, line.getSize() - 1, piv); ///////
     cout << "New array with right part partitioned, with piv at index " << newpiv << endl;
     cout << line.getArray() << endl;
+    
+    line.sortAll();
+    cout << endl << line.getArray() << endl;
+    
+    
+    line.sortAll();
+    cout << endl << line.getArray() << endl;
     
     return 0;
 }
