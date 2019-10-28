@@ -4,17 +4,17 @@
 int main(){
     QS line;
     line.createArray(11);
-    line.addToArray(50);
+    line.addToArray(2);
+    line.addToArray(10);
+    line.addToArray(9);
+    line.addToArray(3);
+    line.addToArray(2);
+    line.addToArray(7);
     line.addToArray(5);
-    line.addToArray(47);
+    line.addToArray(4);
+    line.addToArray(8);
+    line.addToArray(6);
     line.addToArray(1);
-    line.addToArray(27);
-    line.addToArray(15);
-    line.addToArray(30);
-    line.addToArray(1);
-    line.addToArray(27);
-    line.addToArray(15);
-    line.addToArray(99);
     
     cout << "Your array sir:" << endl << line.getArray() << endl;
     cout << "Your size sir:" << endl << line.getSize() << endl;

@@ -35,7 +35,7 @@ QS::~QS(){}
 */
 void QS::sortAll(){
     if(index > 0){
-        cout << "In the sortall function! Yay!" << endl;
+        //cout << "In the sortall function! Yay!" << endl;
         quicksort(0, index - 1);
     }
 }
@@ -43,20 +43,20 @@ void QS::sortAll(){
 void QS::quicksort(int left, int right){
     //base case if size of array is 1
     if((right - left) < 1){ //can also do: if((right - left) < 1) {return;}
-        cout << "Base case baby!" << endl;
+        //cout << "Base case baby!" << endl;
         return;
     }
     //find a pivot and partion the array
     int pivot = medianOfThree(left, right);  ////NEEDS ACTUAL INDEX
-    cout << "medianOfThree: " << getArray() << endl; 
+    //cout << "medianOfThree: " << getArray() << endl; 
     int newpivot = partition(left, right, pivot);
-    cout << "Partition: " << getArray() << endl;
+    //cout << "Partition: " << getArray() << endl;
     
     //quicksort the left and right subarrays
     quicksort(left, newpivot);
-    cout << "Just sorted left subarray: " << getArray() << endl;   
+    //cout << "Just sorted left subarray: " << getArray() << endl;   
     quicksort(newpivot + 1, right);
-    cout << "Just sorted right subarray: " << getArray() << endl;
+    //cout << "Just sorted right subarray: " << getArray() << endl;
 }
 
 
@@ -190,7 +190,7 @@ string QS::getArray() const {
     for(int i = 0; i < index; i++){
         to_string << array[i];
         if(i != (index - 1))
-            to_string << ", ";
+            to_string << ",";
     }
     return to_string.str();
 }
@@ -239,6 +239,7 @@ bool QS::createArray(int capacity){
     }
     array = new int[capacity];
     size = capacity;
+    index = 0;
     return true;
 }
 
